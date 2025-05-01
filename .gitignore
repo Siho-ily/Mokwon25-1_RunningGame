@@ -1,0 +1,12 @@
+.vscode/
+Library/
+Logs/
+Temp/
+Obj/
+Build/
+Builds/
+.idea/
+.DS_Store/
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+*.sln
