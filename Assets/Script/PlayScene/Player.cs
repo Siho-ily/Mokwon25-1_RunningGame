@@ -4,7 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField, ReadOnly] private PlayerState state = PlayerState.Running; // 플레이어 상태
-    public BoxCollider boxCollider; // 플레이어의 BoxCollider
+    public BoxCollider playerCollider; // 플레이어의 BoxCollider
     public Rigidbody rb; // 플레이어의 Rigidbody
 
     void Awake()

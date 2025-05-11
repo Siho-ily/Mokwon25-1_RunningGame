@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  boxCollider: {fileID: 5650414577757341210}
+  playerCollider: {fileID: 5650414577757341210}
   rb: {fileID: 4295772791550586636}
 --- !u!114 &1753037709980473291
 MonoBehaviour:
@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb10172764dacc44a2aedcca6ad55e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityForce: 5
   jumpForce: 5
   isJumped: 0
   isSliding: 0

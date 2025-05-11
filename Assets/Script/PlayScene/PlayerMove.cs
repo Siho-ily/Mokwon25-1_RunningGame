@@ -7,9 +7,8 @@ public class PlayerMove : MonoBehaviour
     private Player player;  // Player 스크립트 연결
     bool isInitialized = false; // 초기화 여부
 
-    // 플레이어 이동속도, 점프 크기, 점프 상태, 슬라이딩 상태, 땅에 닿이있는지... 등
-    public float gravityForce = 5f;
-    public float jumpForce = 5f;
+    // 플레이어 움직임 관련 변수 & 상태
+    public float jumpForce = 17f;
     [ReadOnly] public bool isJumped = false;    // 점프 상태 (낙하 중 점프 가능 여부 체크 변수)
     [ReadOnly] public bool isSliding = false;
     [ReadOnly] public bool isGrounded = false;
@@ -25,7 +24,7 @@ public class PlayerMove : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             if (OnSlideInput()){
                 player.SetState(PlayerState.Sliding);
@@ -37,7 +36,7 @@ public class PlayerMove : MonoBehaviour
 
     void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             if (jumpedByInput)
             {
