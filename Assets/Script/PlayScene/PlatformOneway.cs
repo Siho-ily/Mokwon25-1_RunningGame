@@ -28,9 +28,7 @@ public class PlatformOneWay : MonoBehaviour
         Bounds platformBounds = platformCollider.bounds;
 
         float playerBottom = playerBounds.min.y;
-        float playerTop = playerBounds.max.y;
         float platformTop = platformBounds.max.y;
-        float platformBottom = platformBounds.min.y;
 
         float platformLeft = platformBounds.min.x;
         float platformRight = platformBounds.max.x;
