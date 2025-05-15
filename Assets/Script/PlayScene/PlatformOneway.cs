@@ -13,10 +13,9 @@ public class PlatformOneWay : MonoBehaviour
 
     void Start()
     {
-        GameObject playerObj = GameObject.FindWithTag("Player");
-        if (playerObj != null)
-            playerCollider = playerObj.GetComponent<Collider>();
-
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+            playerCollider = player.GetComponent<Collider>();
         platformCollider = GetComponent<Collider>();
     }
 
@@ -28,9 +27,7 @@ public class PlatformOneWay : MonoBehaviour
         Bounds platformBounds = platformCollider.bounds;
 
         float playerBottom = playerBounds.min.y;
-        float playerTop = playerBounds.max.y;
         float platformTop = platformBounds.max.y;
-        float platformBottom = platformBounds.min.y;
 
         float platformLeft = platformBounds.min.x;
         float platformRight = platformBounds.max.x;
@@ -40,11 +37,11 @@ public class PlatformOneWay : MonoBehaviour
         bool isBeside = playerX < platformLeft - xMargin || playerX > platformRight + xMargin;
 
         // ① 아래 또는 옆에서 접근 → 충돌 무시
-        if ((isBelow || isBeside) && !isIgnoring)
+        if ((isBelow || isBeside) && !isIgnoring && platformCollider.CompareTag("Platform"))
         {
             Physics.IgnoreCollision(playerCollider, platformCollider, true);
             isIgnoring = true;
-            Debug.Log("충돌 무시 시작 (아래 또는 옆)");
+            Debug.Log("충돌 무시 시작 (Platform만): " + platformCollider.name);
         }
 
         // ② 플레이어가 완전히 위로 벗어났을 때만 충돌 다시 활성화
