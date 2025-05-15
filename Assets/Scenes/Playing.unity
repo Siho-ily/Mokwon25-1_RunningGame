@@ -245,7 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 957855530}
     - target: {fileID: 1753037709980473291, guid: 1013709d3fbb33e46aecba18d4238ce3, type: 3}
       propertyPath: jumpForce
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2925356869396182723, guid: 1013709d3fbb33e46aecba18d4238ce3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -564,6 +564,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f267eb0031ca5bc4bb16477005592791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1348553755}
+  isInitialized: 0
+--- !u!114 &1348553755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1166293903782694057, guid: 1013709d3fbb33e46aecba18d4238ce3, type: 3}
+  m_PrefabInstance: {fileID: 273630277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348553746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e974af8153f5fd049898a7a78af7f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1401200449
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +763,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -848,6 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20fe9175a611724385725e3e66d57c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1348553755}
   moveSpeed: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

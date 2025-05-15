@@ -13,10 +13,9 @@ public class PlatformOneWay : MonoBehaviour
 
     void Start()
     {
-        GameObject playerObj = GameObject.FindWithTag("Player");
-        if (playerObj != null)
-            playerCollider = playerObj.GetComponent<Collider>();
-
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+            playerCollider = player.GetComponent<Collider>();
         platformCollider = GetComponent<Collider>();
     }
 
