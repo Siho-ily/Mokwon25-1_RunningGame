@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Platform
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Platform
   - Ground
-  - 
+  - Obstacle
   - 
   - 
   - 
