@@ -10,3 +10,21 @@ Builds/
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
 *.sln
+
+
+# TBignore
+# User-specific
+UserSettings/
+.vscode/
+.vs/
+*.suo
+*.user
+*.csproj
+*.sln
+*.db
+*.dwlt
+*.htm
+*.json
+
+# Ignore local dev settings
+.vsconfig
