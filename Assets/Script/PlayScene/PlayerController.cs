@@ -12,4 +12,12 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 씬 재시작
         }
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider, false);
+        }
+    }
 }

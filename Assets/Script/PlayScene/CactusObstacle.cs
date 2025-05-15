@@ -1,17 +1,10 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class CactusObstacle : MonoBehaviour
 {
-    public float moveSpeed = 1f;
+    [Header("Platform 기본 설정")]
+    public float moveSpeed = 2f;
 
-    void Update()
-    {
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-
-        // 화면 밖으로 나가면 제거
-        if (transform.position.x < -20f)
-        {
-            Destroy(gameObject);
-        }
-    }
+    // 필요한 경우 추가 설정
 }

@@ -18,13 +18,6 @@ public class PlatformOneWay : MonoBehaviour
             playerCollider = playerObj.GetComponent<Collider>();
 
         platformCollider = GetComponent<Collider>();
-
-        // 🔒 플랫폼이 Platform 레이어가 아닐 경우 자동으로 무시 대상에서 제외
-        if (gameObject.layer != LayerMask.NameToLayer("Platform"))
-        {
-            Debug.LogWarning("이 오브젝트는 Platform 레이어가 아니므로 PlatformOneWay 작동 안함");
-            this.enabled = false;
-        }
     }
 
     void FixedUpdate()
@@ -45,11 +38,11 @@ public class PlatformOneWay : MonoBehaviour
         bool isBeside = playerX < platformLeft - xMargin || playerX > platformRight + xMargin;
 
         // ① 아래 또는 옆에서 접근 → 충돌 무시
-        if ((isBelow || isBeside) && !isIgnoring)
+        if ((isBelow || isBeside) && !isIgnoring && platformCollider.CompareTag("Platform"))
         {
             Physics.IgnoreCollision(playerCollider, platformCollider, true);
             isIgnoring = true;
-            Debug.Log("충돌 무시 시작 (아래 또는 옆)");
+            Debug.Log("충돌 무시 시작 (Platform만): " + platformCollider.name);
         }
 
         // ② 플레이어가 완전히 위로 벗어났을 때만 충돌 다시 활성화
