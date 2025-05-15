@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
 
     private bool jumpedByInput = false; // 플레이어 공중에 있을 때 점프 입력 여부
     
-
+//
     public void Init(Player player) 
     {
         this.player = player;
