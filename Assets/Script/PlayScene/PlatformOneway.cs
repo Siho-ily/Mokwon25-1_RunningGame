@@ -19,7 +19,7 @@ public class PlatformOneWay : MonoBehaviour
 
 
     public void Init(Platform platform)
-    {
+    {   // 초기화 코드
         isInitialized = true;
         this.platform = platform;
     }

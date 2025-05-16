@@ -29,13 +29,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetGameSpeed(float speed)
-    {
+    {   // 게임 스피드 조절
         gameSpeed = Mathf.Clamp(speed, 0f, 5f);
         ApplyGameSpeed();
     }
 
     private void ApplyGameSpeed()
-    {
+    {   // 게임 스피드와 Delta스피드 계산
         Time.timeScale = gameSpeed;
         Time.fixedDeltaTime = 0.02f / gameSpeed;
     }
