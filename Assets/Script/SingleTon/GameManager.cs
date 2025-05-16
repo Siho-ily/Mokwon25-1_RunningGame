@@ -9,8 +9,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록 설정
+        }
+        else
+        {
+            Destroy(gameObject); // 이미 존재하는 경우 중복 생성 방지
+        }
 
         ApplyGameSpeed(); // 시작 시 한번 적용
     }
