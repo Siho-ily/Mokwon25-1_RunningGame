@@ -1,16 +1,13 @@
 using UnityEngine;
 
+[RequireComponent(typeof(CactusObstacle))]
 public class CactusObstacleMove : MonoBehaviour
 {
-    private CactusObstacle cactusObstacle;
+    public float moveSpeed = 2f;
 
-    void Awake()
-    {
-        cactusObstacle = GetComponent<CactusObstacle>();
-    }
 
     void Update()
     {
-        transform.position += Vector3.left * cactusObstacle.moveSpeed * Time.deltaTime;
+        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
     }
 }

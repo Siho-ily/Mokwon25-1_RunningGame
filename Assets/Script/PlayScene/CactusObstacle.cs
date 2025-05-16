@@ -4,14 +4,20 @@ using UnityEngine.SceneManagement;
 
 public class CactusObstacle : MonoBehaviour
 {
-    public Player player;
-    private bool isInitialized = false; // 초기화 여부
-    [Header("CactusObstacle 기본 설정")]
-    public float moveSpeed = 2f;
+    [Header("Component")]
+    private Player player;
+    private GameObject playerObj;
+    private BoxCollider playerCollider;
 
-    void Update()
+
+	void Start()
     {
-        if (!isInitialized) return;
+        playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.GetComponent<Player>();
+            playerCollider = player.playerCollider;
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -19,7 +25,7 @@ public class CactusObstacle : MonoBehaviour
         Debug.Log(collider);
         Debug.Log(collider.ToString());
         // 장애물과 충돌 시 게임 오버
-        if (collider == player.playerCollider)
+        if (collider == playerCollider)
         {
             Debug.Log("게임 오버!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 씬 재시작

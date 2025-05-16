@@ -3,14 +3,16 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMove), typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
+    [Header("State")]
     [SerializeField, ReadOnly] private PlayerState state = PlayerState.Running; // 플레이어 상태
+
+    [Header("Component")]
     public BoxCollider playerCollider; // 플레이어의 BoxCollider
     public Rigidbody rb; // 플레이어의 Rigidbody
+    public PlayerMove moveComponent;    // 플레이어 움직임 컴포넌트
 
     void Awake()
     {
-        //PlayerMove에 참조 넘기기
-        PlayerMove moveComponent = GetComponent<PlayerMove>();
         moveComponent.Init(this);
     }
 

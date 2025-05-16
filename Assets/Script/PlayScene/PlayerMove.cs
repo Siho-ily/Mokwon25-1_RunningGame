@@ -1,6 +1,5 @@
-using System;
-using Unity.Collections;
 using UnityEngine;
+
 
 public class PlayerMove : MonoBehaviour
 {
@@ -8,27 +7,30 @@ public class PlayerMove : MonoBehaviour
     bool isInitialized = false; // 초기화 여부
 
     // 플레이어 움직임 관련 변수 & 상태
-    public float jumpForce = 17f;
+    [SerializeField, ReadOnly] public float jumpForce = 18f;
     [ReadOnly] public bool isJumped = false;    // 점프 상태 (낙하 중 점프 가능 여부 체크 변수)
     [ReadOnly] public bool isSliding = false;
     [ReadOnly] public bool isGrounded = false;
 
     private bool jumpedByInput = false; // 플레이어 공중에 있을 때 점프 입력 여부
-    
-//
-    public void Init(Player player) 
+
+    //
+    public void Init(Player player)
     {
         this.player = player;
         isInitialized = true;
     }
-    
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
-            if (OnSlideInput()){
+            if (OnSlideInput())
+            {
                 player.SetState(PlayerState.Sliding);
-            } else {
+            }
+            else
+            {
                 player.SetState(PlayerState.Running);
             }
         }
@@ -50,42 +52,50 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-	void Update()
+    void Update()
     {
         if (!isInitialized) return; // 초기화가 안되어있으면 아무것도 하지 않음
         if (player.GetState() == PlayerState.Death) return; // 죽은 상태라면 아무것도 하지 않음
-        
+
         // 동작
         HandleMovement();
         // 상태 평가
-        EvaluateState(); 
+        EvaluateState();
     }
 
-    void EvaluateState() {
+    void EvaluateState()
+    {
         // 상태에 따라서 변수 설정
         // 구현 예정
         PlayerState state = player.GetState();
-        if (state == PlayerState.Running) {
+        if (state == PlayerState.Running)
+        {
             isJumped = false;
             isGrounded = true;
             isSliding = false;
-        } else if (state == PlayerState.Jumping) {
+        }
+        else if (state == PlayerState.Jumping)
+        {
             isJumped = true;
             isGrounded = false;
             isSliding = false;
-        } else if (state == PlayerState.Sliding){
+        }
+        else if (state == PlayerState.Sliding)
+        {
             isJumped = false;
             isGrounded = true;
             isSliding = true;
-        } else if (state == PlayerState.Falling) {
+        }
+        else if (state == PlayerState.Falling)
+        {
             isJumped = false;
             isGrounded = false;
             isSliding = false;
-        } 
+        }
         // Death 상태는 따로 처리하지 않음
     }
 
-    void HandleMovement() 
+    void HandleMovement()
     {
         // 키 입력 처리
         if (OnJumpInput()) HandleJump();
@@ -95,7 +105,7 @@ public class PlayerMove : MonoBehaviour
     /*
     * 핸들러
     */
-    void HandleJump() 
+    void HandleJump()
     {
         if (!CanJump()) return;
 
@@ -106,7 +116,7 @@ public class PlayerMove : MonoBehaviour
         // 구현 예정
     }
 
-    void HandleSlide() 
+    void HandleSlide()
     {
         if (OnSlideInput())
         {
@@ -124,21 +134,23 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    
+
     /* 
     * 상태 체크
     */
 
-    bool CanJump() 
+    bool CanJump()
     {
-        if (!isJumped) { // 조건이 추가될 수 있음
+        if (!isJumped)
+        { // 조건이 추가될 수 있음
             return true;
         }
         return false;
     }
-    bool CanSlide() 
+    bool CanSlide()
     {
-        if (isGrounded) { // 조건이 추가될 수 있음
+        if (isGrounded)
+        { // 조건이 추가될 수 있음
             return true;
         }
         return false;
@@ -148,11 +160,13 @@ public class PlayerMove : MonoBehaviour
     * 입력 감지 함수
     */
 
-    bool OnJumpInput(){
+    bool OnJumpInput()
+    {
         return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
     }
 
-    bool OnSlideInput(){
+    bool OnSlideInput()
+    {
         return Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
     }
 }

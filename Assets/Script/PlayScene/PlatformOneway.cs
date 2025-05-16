@@ -1,25 +1,45 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Platform))]
 public class PlatformOneWay : MonoBehaviour
 {
-    private Collider playerCollider;
-    private Collider platformCollider;
-
+    private bool isInitialized = false;
     private bool isIgnoring = false;
+
+    [Header("Component")]
+    public Player player;
+    public Platform platform;
+    private GameObject playerObj;
+    private Collider playerCollider;
+    public Collider platformCollider;
 
     [Header("충돌 무시 감지 설정")]
     [SerializeField] private float yMargin = 0.05f;  // 수직 감지 여유
     [SerializeField] private float xMargin = 0.2f;   // 수평 감지 여유
 
-    void Start()
+
+    public void Init(Platform platform)
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-            playerCollider = player.GetComponent<Collider>();
-        platformCollider = GetComponent<Collider>();
+        isInitialized = true;
+        this.platform = platform;
     }
 
-    void FixedUpdate()
+    void Start()
+    {
+        playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.GetComponent<Player>();
+            playerCollider = player.playerCollider;
+        }
+    }
+
+	void Update()
+	{
+        if (!isInitialized) return;
+	}
+
+	void FixedUpdate()
     {
         if (playerCollider == null || platformCollider == null) return;
 
