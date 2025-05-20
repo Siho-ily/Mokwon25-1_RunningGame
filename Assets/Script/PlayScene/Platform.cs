@@ -1,10 +1,14 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
 public class Platform : MonoBehaviour
 {
-    [Header("Platform 기본 설정")]
-    public float moveSpeed = 2f;
+    [Header("Component")]
+    public Collider platformCollider;           // 플랫폼 콜라이더
+    public PlatformMove moveComponent;          // 플랫폼 이동 스크립트 컴포넌트
+    public PlatformOneWay oneWayComponent;      // 플랫폼 일방향 활성화 스크립트 컴포넌트
 
-    // 필요한 경우 추가 설정
+    void Awake()
+    {   // Platform 객체 PlatformOneWay에 전달
+        oneWayComponent.Init(this);
+    }
 }

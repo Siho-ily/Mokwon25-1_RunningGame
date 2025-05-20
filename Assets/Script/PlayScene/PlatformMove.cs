@@ -1,17 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Platform))]
 public class PlatformMove : MonoBehaviour
 {
-    private Platform platform;
-
-    void Awake()
-    {
-        platform = GetComponent<Platform>();
-    }
+    [Header("Variable")]
+    public float moveSpeed = 4f;        // 플랫폼 움직임 속도
 
     void Update()
     {
-        transform.position += Vector3.left * platform.moveSpeed * Time.deltaTime;
+        // 플랫폼 움직임 구현
+        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
     }
 }

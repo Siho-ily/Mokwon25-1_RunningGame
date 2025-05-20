@@ -9,8 +9,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록 설정
+        }
+        else
+        {
+            Destroy(gameObject); // 이미 존재하는 경우 중복 생성 방지
+        }
 
         ApplyGameSpeed(); // 시작 시 한번 적용
     }
@@ -22,13 +29,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetGameSpeed(float speed)
-    {
+    {   // 게임 스피드 조절
         gameSpeed = Mathf.Clamp(speed, 0f, 5f);
         ApplyGameSpeed();
     }
 
     private void ApplyGameSpeed()
-    {
+    {   // 게임 스피드와 Delta스피드 계산
         Time.timeScale = gameSpeed;
         Time.fixedDeltaTime = 0.02f / gameSpeed;
     }

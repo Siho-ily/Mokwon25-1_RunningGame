@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class CactusObstacleMove : MonoBehaviour
 {
-    private CactusObstacle cactusObstacle;
-
-    void Awake()
-    {
-        cactusObstacle = GetComponent<CactusObstacle>();
-    }
+    [Header("Variable")]
+    public float moveSpeed = 4f;        // 장애물 움직임 속도
 
     void Update()
     {
-        transform.position += Vector3.left * cactusObstacle.moveSpeed * Time.deltaTime;
+        // 장애물 이동 구현
+        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
     }
 }
