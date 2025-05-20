@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     bool isInitialized = false; // 초기화 여부
 
     // 플레이어 움직임 관련 변수 & 상태
-    [SerializeField, ReadOnly] public float jumpForce = 18f;    // 점프 강도
+    [SerializeField, ReadOnly] public float jumpForce = 17f;    // 점프 강도
     [ReadOnly] public bool isJumped = false;                    // 점프 상태 (낙하 중 점프 가능 여부 체크 변수)
     [ReadOnly] public bool isSliding = false;                   // 슬라이딩 여부부
     [ReadOnly] public bool isGrounded = false;                  // 땅에 닿았는지 여부
