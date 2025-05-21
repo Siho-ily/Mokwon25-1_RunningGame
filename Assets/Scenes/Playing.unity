@@ -1101,8 +1101,6 @@ GameObject:
   - component: {fileID: 1088728303}
   - component: {fileID: 1088728302}
   - component: {fileID: 1088728306}
-  - component: {fileID: 1088728307}
-  - component: {fileID: 1088728308}
   m_Layer: 5
   m_Name: rank
   m_TagString: Untagged
@@ -1208,32 +1206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 480749339}
   FinalScore: {fileID: 1866258898}
---- !u!114 &1088728307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088728301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a62f1959e3955a1428aa535e356d8722, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSpeed: 1
---- !u!114 &1088728308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088728301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c8a662d123b9044e95ee44940d8f246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 549661310}
 --- !u!1 &1348553746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 24661261399933437, guid: 1013709d3fbb33e46aecba18d4238ce3, type: 3}
