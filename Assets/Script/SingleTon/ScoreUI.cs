@@ -5,6 +5,18 @@ public class ScoreUI : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
 
+    void Start()
+    {
+        if (scoreText == null)
+        {
+            scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+            if (scoreText == null)
+            {
+                Debug.LogError("❌ ScoreText 오브젝트를 찾을 수 없습니다.");
+            }
+        }
+    }
+
     void Update()
     {
         if (ScoreManager.Instance == null)

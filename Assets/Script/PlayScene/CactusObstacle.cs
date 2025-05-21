@@ -35,5 +35,4 @@ public class CactusObstacle : MonoBehaviour
         }
     }
 
-    // 필요한 경우 추가 설정
 }
