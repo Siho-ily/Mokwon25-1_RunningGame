@@ -1,26 +1,45 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Platform))]
 public class PlatformOneWay : MonoBehaviour
 {
-    private Collider playerCollider;
-    private Collider platformCollider;
-
+    private bool isInitialized = false;
     private bool isIgnoring = false;
+
+    [Header("Component")]
+    public Player player;
+    public Platform platform;
+    private GameObject playerObj;
+    private Collider playerCollider;
+    public Collider platformCollider;
 
     [Header("충돌 무시 감지 설정")]
     [SerializeField] private float yMargin = 0.05f;  // 수직 감지 여유
     [SerializeField] private float xMargin = 0.2f;   // 수평 감지 여유
 
-    void Start()
-    {
-        GameObject playerObj = GameObject.FindWithTag("Player");
-        if (playerObj != null)
-            playerCollider = playerObj.GetComponent<Collider>();
 
-        platformCollider = GetComponent<Collider>();
+    public void Init(Platform platform)
+    {   // 초기화 코드
+        isInitialized = true;
+        this.platform = platform;
     }
 
-    void FixedUpdate()
+    void Start()
+    {
+        playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.GetComponent<Player>();
+            playerCollider = player.playerCollider;
+        }
+    }
+
+	void Update()
+	{
+        if (!isInitialized) return;
+	}
+
+	void FixedUpdate()
     {
         if (playerCollider == null || platformCollider == null) return;
 
@@ -38,11 +57,11 @@ public class PlatformOneWay : MonoBehaviour
         bool isBeside = playerX < platformLeft - xMargin || playerX > platformRight + xMargin;
 
         // ① 아래 또는 옆에서 접근 → 충돌 무시
-        if ((isBelow || isBeside) && !isIgnoring)
+        if ((isBelow || isBeside) && !isIgnoring && platformCollider.CompareTag("Platform"))
         {
             Physics.IgnoreCollision(playerCollider, platformCollider, true);
             isIgnoring = true;
-            Debug.Log("충돌 무시 시작 (아래 또는 옆)");
+            Debug.Log("충돌 무시 시작 (Platform만): " + platformCollider.name);
         }
 
         // ② 플레이어가 완전히 위로 벗어났을 때만 충돌 다시 활성화
