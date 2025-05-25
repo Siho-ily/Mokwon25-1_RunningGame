@@ -293,4 +293,7 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 0
+<<<<<<< HEAD
   m_UsePhysicalKeys: 1
+=======
+>>>>>>> 20ab356 (최초 커밋)

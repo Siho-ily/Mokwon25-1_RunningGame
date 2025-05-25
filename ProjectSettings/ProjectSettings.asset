@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
+<<<<<<< HEAD
   productGUID: a7bc16508d9de514f89c79dc57f70f4c
+=======
+  productGUID: 583103dc19d089c409ccd56886ca2115
+>>>>>>> 20ab356 (최초 커밋)
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +17,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
+<<<<<<< HEAD
   productName: 25TeamProject
+=======
+  productName: My project (1)
+>>>>>>> 20ab356 (최초 커밋)
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -287,6 +295,7 @@ PlayerSettings:
   AndroidReportGooglePlayAppDependencies: 1
   androidSymbolsSizeThreshold: 800
   m_BuildTargetIcons: []
+<<<<<<< HEAD
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
@@ -380,6 +389,9 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
+=======
+  m_BuildTargetPlatformIcons: []
+>>>>>>> 20ab356 (최초 커밋)
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
@@ -767,14 +779,22 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
+<<<<<<< HEAD
   metroPackageName: 25TeamProject
+=======
+  metroPackageName: My project (1)
+>>>>>>> 20ab356 (최초 커밋)
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
+<<<<<<< HEAD
   metroApplicationDescription: 25TeamProject
+=======
+  metroApplicationDescription: My project (1)
+>>>>>>> 20ab356 (최초 커밋)
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -844,6 +864,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
+<<<<<<< HEAD
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 87d9b02f-360c-4786-a0af-31c200005aff
@@ -851,6 +872,15 @@ PlayerSettings:
   qualitySettingsNames: []
   projectName: 25TeamProject 2025-05-01_15-22-56
   organizationId: hyeon_unity910
+=======
+  activeInputHandler: 1
+  windowsGamepadBackendHint: 0
+  cloudProjectId: c3306b49-ac4b-4061-96af-df4062efeade
+  framebufferDepthMemorylessMode: 0
+  qualitySettingsNames: []
+  projectName: My project (1)
+  organizationId: rlawnals0920
+>>>>>>> 20ab356 (최초 커밋)
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

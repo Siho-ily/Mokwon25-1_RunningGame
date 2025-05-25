@@ -2,11 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
+<<<<<<< HEAD
   serializedVersion: 3
   tags:
   - Ground
   - Platform
   - Obstacle
+=======
+  serializedVersion: 2
+  tags: []
+>>>>>>> 20ab356 (최초 커밋)
   layers:
   - Default
   - TransparentFX
@@ -16,11 +21,19 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
   - Player
   - 
   - Platform
   - Ground
   - Obstacle
+=======
+  - 
+  - 
+  - 
+  - 
+  - 
+>>>>>>> 20ab356 (최초 커밋)
   - 
   - 
   - 
@@ -44,5 +57,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
   m_RenderingLayers:
   - Default
+=======
+>>>>>>> 20ab356 (최초 커밋)
