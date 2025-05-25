@@ -1,47 +1,30 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Platform))]
+[RequireComponent(typeof(Collider))]
 public class PlatformOneWay : MonoBehaviour
 {
-    private bool isInitialized = false;
-    private bool isIgnoring = false;
+    [SerializeField] private float yMargin = 0.05f;
 
-    [Header("Component")]
-    public Player player;
-    public Platform platform;
-    private GameObject playerObj;
+    private Collider platformCollider;
     private Collider playerCollider;
-    public Collider platformCollider;
-
-    [Header("충돌 무시 감지 설정")]
-    [SerializeField] private float yMargin = 0.05f;  // 수직 감지 여유
-    [SerializeField] private float xMargin = 0.2f;   // 수평 감지 여유
-
-
-    public void Init(Platform platform)
-    {   // 초기화 코드
-        isInitialized = true;
-        this.platform = platform;
-    }
+    private Rigidbody playerRb;
 
     void Start()
     {
-        playerObj = GameObject.FindWithTag("Player");
+        platformCollider = GetComponent<Collider>();
+
+        GameObject playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null)
         {
-            player = playerObj.GetComponent<Player>();
+            Player player = playerObj.GetComponent<Player>();
             playerCollider = player.playerCollider;
+            playerRb = player.GetComponent<Rigidbody>();
         }
     }
 
-	void Update()
-	{
-        if (!isInitialized) return;
-	}
-
-	void FixedUpdate()
+    void FixedUpdate()
     {
-        if (playerCollider == null || platformCollider == null) return;
+        if (platformCollider == null || playerCollider == null || playerRb == null) return;
 
         Bounds playerBounds = playerCollider.bounds;
         Bounds platformBounds = platformCollider.bounds;
@@ -49,27 +32,28 @@ public class PlatformOneWay : MonoBehaviour
         float playerBottom = playerBounds.min.y;
         float platformTop = platformBounds.max.y;
 
-        float platformLeft = platformBounds.min.x;
-        float platformRight = platformBounds.max.x;
-        float playerX = playerBounds.center.x;
+        float vy = playerRb.linearVelocity.y;
+        float margin = yMargin;
 
-        bool isBelow = playerBottom < platformTop - yMargin;
-        bool isBeside = playerX < platformLeft - xMargin || playerX > platformRight + xMargin;
+        // 플레이어 바닥에서 Raycast
+        Vector3 rayOrigin = new Vector3(
+            playerBounds.center.x,
+            playerBounds.min.y+0.3f,
+            playerBounds.center.z
+        );
 
-        // ① 아래 또는 옆에서 접근 → 충돌 무시
-        if ((isBelow || isBeside) && !isIgnoring && platformCollider.CompareTag("Platform"))
+        // 10번 레이어(Platform) 감지
+        bool isPlatformBelow = Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, 0.8f, LayerMask.GetMask("Platform"));
+
+        
+        if (vy > 0f || playerBottom < platformTop + yMargin && !isPlatformBelow)
         {
             Physics.IgnoreCollision(playerCollider, platformCollider, true);
-            isIgnoring = true;
         }
-
-        // ② 플레이어가 완전히 위로 벗어났을 때만 충돌 다시 활성화
-        bool hasPassedThrough = playerBottom > platformTop + yMargin;
-
-        if (isIgnoring && hasPassedThrough)
+        else
         {
+            // 낙하 중이고 플랫폼보다 충분히 위 → 충돌 허용
             Physics.IgnoreCollision(playerCollider, platformCollider, false);
-            isIgnoring = false;
         }
     }
 }
