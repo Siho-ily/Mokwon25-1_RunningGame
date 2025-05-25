@@ -61,7 +61,6 @@ public class PlatformOneWay : MonoBehaviour
         {
             Physics.IgnoreCollision(playerCollider, platformCollider, true);
             isIgnoring = true;
-            Debug.Log("충돌 무시 시작 (Platform만): " + platformCollider.name);
         }
 
         // ② 플레이어가 완전히 위로 벗어났을 때만 충돌 다시 활성화
@@ -71,7 +70,6 @@ public class PlatformOneWay : MonoBehaviour
         {
             Physics.IgnoreCollision(playerCollider, platformCollider, false);
             isIgnoring = false;
-            Debug.Log("플랫폼 완전히 통과 → 충돌 다시 활성화");
         }
     }
 }
