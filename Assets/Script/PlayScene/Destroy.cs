@@ -6,7 +6,7 @@ public class Destroy : MonoBehaviour
 	{
 		if (transform.position.x <= -20)
 		{
-			Destroy(gameObject);
+			Destroy(transform.root.gameObject);
 		}
 	}
 }
