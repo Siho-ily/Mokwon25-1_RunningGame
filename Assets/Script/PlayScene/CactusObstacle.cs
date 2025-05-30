@@ -28,6 +28,8 @@ public class CactusObstacle : MonoBehaviour
             UIManager ui = FindObjectOfType<UIManager>();
             ui.ShowGameOver();
 
+            Storage.Instance.PrintAllScores();
+            
             Debug.Log("게임 오버!");
             
 
