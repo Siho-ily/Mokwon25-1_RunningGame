@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 4555708198824969491}
   - component: {fileID: 9196523237081249237}
   - component: {fileID: 6635695704749197338}
+  - component: {fileID: 7073059365509160506}
   m_Layer: 12
-  m_Name: CactusObstacle
+  m_Name: Obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 6501033944310564503}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.62, y: -2.7, z: 0}
-  m_LocalScale: {x: 0.5, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1c6832aa706d30e46b788991e2946228, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c34d80cd143c744bd34b2fff553ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!114 &6635695704749197338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,5 +136,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20fe9175a611724385725e3e66d57c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1166293903782694057, guid: 1013709d3fbb33e46aecba18d4238ce3, type: 3}
-  moveSpeed: 2
+--- !u!114 &7073059365509160506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501033944310564503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb86865747d6d349a7dd22648f1315e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

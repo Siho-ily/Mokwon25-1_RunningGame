@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
-public class CactusObstacle : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
     [Header("Component")]
     private Player player;                  // 플레이어 스크립트

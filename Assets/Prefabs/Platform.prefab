@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3895542779618834982}
   - component: {fileID: 400493118473939653}
   - component: {fileID: 5051023832927309829}
+  - component: {fileID: -8867400379865537713}
   m_Layer: 10
   m_Name: Platform
   m_TagString: Platform
@@ -123,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf548e6c06bf4d04498b083befa713a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
   platformCollider: {fileID: 5638842707325573872}
   moveComponent: {fileID: 400493118473939653}
   oneWayComponent: {fileID: 5051023832927309829}
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85609979b189a644b8c1676e5d660b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 5
 --- !u!114 &5051023832927309829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +157,15 @@ MonoBehaviour:
   platformCollider: {fileID: 5638842707325573872}
   yMargin: 0.05
   xMargin: 0.03
+--- !u!114 &-8867400379865537713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037987863528012168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb86865747d6d349a7dd22648f1315e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
