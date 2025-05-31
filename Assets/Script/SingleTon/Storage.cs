@@ -84,12 +84,14 @@ public class Storage : MonoBehaviour
     }
     
 
-    // 데이터
+    // 데이터 저장
     public void SaveData(string key, string value)
     {
         PlayerPrefs.SetString(key, value);
         PlayerPrefs.Save(); // 저장
     }
+
+    // 데이터 불러오기
     public string LoadData(string key)
     {
         return PlayerPrefs.GetString(key, ""); // 기본값은 빈 문자열
