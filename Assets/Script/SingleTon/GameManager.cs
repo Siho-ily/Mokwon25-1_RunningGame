@@ -39,4 +39,5 @@ public class GameManager : MonoBehaviour
         Time.timeScale = gameSpeed;
         Time.fixedDeltaTime = 0.02f / gameSpeed;
     }
+
 }
