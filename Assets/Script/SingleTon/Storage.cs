@@ -82,6 +82,12 @@ public class Storage : MonoBehaviour
     {
         return PlayerPrefs.GetInt(HighScoreKey, 0);
     }
+
+    public void ResetScore()
+    {
+        PlayerPrefs.SetInt(HighScoreKey, 0);
+        PlayerPrefs.SetString(ScoreListKey, "");
+    }
     
 
     // 데이터 저장
