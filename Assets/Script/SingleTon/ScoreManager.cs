@@ -32,8 +32,10 @@ public class ScoreManager : MonoBehaviour
     {
         if (!isRunning) return;
 
-        // 1초에 10점씩 증가 (원하면 속도 조절 가능)
+        // 1초에 10점씩 증가
         CurrentScore += Time.deltaTime * 4f;
+        // 게임 속도 증가
+        GameManager.Instance.SetGameSpeed(CurrentScore / 300f + 1f);
         IntCurrentScore = Mathf.FloorToInt(CurrentScore); //float int로 변환
     }
 
