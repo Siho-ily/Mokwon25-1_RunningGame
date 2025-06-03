@@ -15,7 +15,6 @@ Assembly-CSharp-Editor.csproj
 # TBignore
 # User-specific
 UserSettings/
-.vscode/
 .vs/
 *.suo
 *.user
