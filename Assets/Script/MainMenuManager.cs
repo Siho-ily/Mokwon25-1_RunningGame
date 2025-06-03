@@ -5,7 +5,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public void GoToGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("PlayingScene");
     }
 
     public void GoToRankingScene()
