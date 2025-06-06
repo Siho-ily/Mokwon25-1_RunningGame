@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        ScoreManager.Instance.ResetScore();
+        Instance.ResetScore();
     }
 
 

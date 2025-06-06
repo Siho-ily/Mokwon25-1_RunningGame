@@ -12,4 +12,9 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("RankingScene");
     }
+
+    public void GoToMenuScene()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
 }
