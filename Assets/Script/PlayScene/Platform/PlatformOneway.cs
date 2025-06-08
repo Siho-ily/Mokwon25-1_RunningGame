@@ -33,7 +33,6 @@ public class PlatformOneWay : MonoBehaviour
         float platformTop = platformBounds.max.y;
 
         float vy = playerRb.linearVelocity.y;
-        float margin = yMargin;
 
         // 플레이어 바닥에서 Raycast
         Vector3 rayOrigin = new Vector3(

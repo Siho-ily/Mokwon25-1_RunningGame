@@ -23,7 +23,7 @@ public class Obstacle : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         // 장애물과 충돌 시 게임 오버
-        if (collider == player.playerCollider)
+        if (collider == playerCollider)
         {
             ScoreManager.Instance.StopScoring(); // 점수 정지
             //ScoreManager.Instance.SaveScore();   // 점수 저장 (선택)
