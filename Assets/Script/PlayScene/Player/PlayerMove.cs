@@ -142,7 +142,7 @@ public class PlayerMove : MonoBehaviour
 
     // 점프가 가능한지 확인하는 메소드
     bool CanJump()
-    {   // 점프를 했으면 불가능능
+    {   // 점프를 했으면 불가능
         if (!isJumped)
         {
             return true;

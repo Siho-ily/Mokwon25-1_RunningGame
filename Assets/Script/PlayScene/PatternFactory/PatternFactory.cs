@@ -4,8 +4,6 @@ using UnityEngine;
 public class PatternFactory : MonoBehaviour
 {
     public List<GameObject> patternPrefabs;
-    public float minInterval = 1f;          // 최소 생성 간격
-    public float maxInterval = 3f;          // 최대 생성 간격
 
     private float timer = 0f;
     private float nextSpawnTime = 1f;

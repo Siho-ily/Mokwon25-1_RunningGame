@@ -26,8 +26,7 @@ public class Obstacle : MonoBehaviour
         if (collider == playerCollider)
         {
             ScoreManager.Instance.StopScoring(); // 점수 정지
-            //ScoreManager.Instance.SaveScore();   // 점수 저장 (선택)
-            GameManager.Instance.gameSpeed = 0; //게임 speed = 0
+            GameManager.Instance.SetGameSpeed(0); //게임 speed = 0
     
             UIManager ui = FindAnyObjectByType<UIManager>();
             ui.ShowGameOver();
@@ -35,9 +34,6 @@ public class Obstacle : MonoBehaviour
             Storage.Instance.PrintAllScores();
             
             Debug.Log("게임 오버!");
-            
-
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 씬 재시작
         }
     }
 

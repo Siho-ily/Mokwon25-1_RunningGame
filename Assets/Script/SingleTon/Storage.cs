@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Storage : MonoBehaviour
@@ -50,9 +51,9 @@ public class Storage : MonoBehaviour
     }
 
     // 점수 리스트 불러오기
-    public System.Collections.Generic.List<int> LoadScoreList()
+    public List<int> LoadScoreList()
     {
-        var list = new System.Collections.Generic.List<int>();
+        var list = new List<int>();
         string scoreListStr = PlayerPrefs.GetString(ScoreListKey, "");
         if (!string.IsNullOrEmpty(scoreListStr))
         {
